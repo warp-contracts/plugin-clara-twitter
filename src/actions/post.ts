@@ -8,6 +8,7 @@ import {
     ModelClass,
     formatMessages,
     generateObject,
+    HandlerCallback,
 } from "@elizaos/core";
 import { Scraper } from "agent-twitter-client";
 import { tweetTemplate } from "../templates";
@@ -134,11 +135,19 @@ export const postAction: Action = {
 
         return hasCredentials;
     },
-    handler: async (
+    handler: async ({
+        runtime,
+        message,
+        state,
+        options,
+        callback,
+    }: {
         runtime: IAgentRuntime,
         message: Memory,
-        state?: State
-    ): Promise<boolean> => {
+        state: State,
+        options: any,
+        callback: HandlerCallback
+    }): Promise<boolean> => {
         try {
             // Generate tweet content using context
             const tweetContent = await composeTweet(runtime, message, state);
