@@ -31,5 +31,45 @@
         "dev": "tsup --format esm --dts --watch",
         "test": "vitest run",
         "test:watch": "vitest"
+    },
+    "agentConfig": {
+        "pluginType": "elizaos:client:1.0.0",
+        "pluginParameters": {
+            "TWITTER_USERNAME": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Twitter account username"
+            },
+            "TWITTER_PASSWORD": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Twitter account password"
+            },
+            "TWITTER_EMAIL": {
+                "type": "string",
+                "optional": true,
+                "description": "Twitter account email (required for 2FA)"
+            },
+            "TWITTER_2FA_SECRET": {
+                "type": "string",
+                "optional": true,
+                "description": "Twitter 2FA secret key"
+            },
+            "TWITTER_PREMIUM": {
+                "type": "boolean",
+                "default": false,
+                "description": "Enable premium Twitter features"
+            },
+            "TWITTER_DRY_RUN": {
+                "type": "boolean",
+                "default": false,
+                "description": "Test mode without posting to Twitter"
+            },
+            "MAX_TWEET_LENGTH": {
+                "type": "number",
+                "default": 280,
+                "description": "Maximum allowed length for tweets"
+            }
+        }
     }
 }
