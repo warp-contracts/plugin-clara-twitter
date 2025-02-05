@@ -1,75 +1,40 @@
 {
-    "name": "@elizaos-plugins/plugin-twitter",
-    "version": "0.1.8+build.1",
-    "type": "module",
-    "main": "dist/index.js",
-    "module": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "exports": {
-        "./package.json": "./package.json",
-        ".": {
-            "import": {
-                "@elizaos/source": "./src/index.ts",
-                "types": "./dist/index.d.ts",
-                "default": "./dist/index.js"
-            }
-        }
-    },
-    "files": [
-        "dist"
-    ],
-    "dependencies": {
-        "@elizaos/core": "workspace:*",
-        "agent-twitter-client": "0.0.18",
-        "tsup": "8.3.5"
-    },
-    "devDependencies": {
-        "vitest": "^1.0.0"
-    },
-    "scripts": {
-        "build": "tsup --format esm --dts",
-        "dev": "tsup --format esm --dts --watch",
-        "test": "vitest run",
-        "test:watch": "vitest"
-    },
-    "agentConfig": {
-        "pluginType": "elizaos:client:1.0.0",
-        "pluginParameters": {
-            "TWITTER_USERNAME": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Twitter account username"
-            },
-            "TWITTER_PASSWORD": {
-                "type": "string",
-                "minLength": 1,
-                "description": "Twitter account password"
-            },
-            "TWITTER_EMAIL": {
-                "type": "string",
-                "optional": true,
-                "description": "Twitter account email (required for 2FA)"
-            },
-            "TWITTER_2FA_SECRET": {
-                "type": "string",
-                "optional": true,
-                "description": "Twitter 2FA secret key"
-            },
-            "TWITTER_PREMIUM": {
-                "type": "boolean",
-                "default": false,
-                "description": "Enable premium Twitter features"
-            },
-            "TWITTER_DRY_RUN": {
-                "type": "boolean",
-                "default": false,
-                "description": "Test mode without posting to Twitter"
-            },
-            "MAX_TWEET_LENGTH": {
-                "type": "number",
-                "default": 280,
-                "description": "Maximum allowed length for tweets"
-            }
-        }
-    }
+	"name": "@elizaos/plugin-twitter",
+	"version": "0.1.9",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"import": {
+				"@elizaos/source": "./src/index.ts",
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"dependencies": {
+		"@elizaos/core": "workspace:*",
+		"agent-twitter-client": "0.0.18",
+		"tsup": "8.3.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.5.3",
+		"vitest": "^3.0.0"
+	},
+	"scripts": {
+		"build": "tsup --format esm --dts",
+		"dev": "tsup --format esm --dts --watch",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"lint": "biome check src/",
+		"lint:fix": "biome check --apply src/",
+		"format": "biome format src/",
+		"format:fix": "biome format --write src/"
+	}
 }
