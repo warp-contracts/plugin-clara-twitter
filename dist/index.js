@@ -30,7 +30,9 @@ Generate a tweet that:
 4. Must be UNDER 180 characters (this is a strict requirement)
 5. Speaks from the perspective of {{agentName}}
 
-Generate only the tweet text, no other commentary.`;
+Generate only the tweet text, no other commentary.
+
+Return the tweet in JSON format like: {"text": "your tweet here"}`;
 
 // ../../node_modules/zod/lib/index.mjs
 var util;
@@ -4034,12 +4036,10 @@ async function postTweet(runtime, content) {
         const noteTweetResult = await scraper.sendNoteTweet(content);
         if (noteTweetResult.errors && noteTweetResult.errors.length > 0) {
           return await sendTweet(scraper, content);
-        } else {
-          return true;
         }
-      } else {
-        return await sendTweet(scraper, content);
+        return true;
       }
+      return await sendTweet(scraper, content);
     } catch (error) {
       throw new Error(`Note Tweet failed: ${error}`);
     }
@@ -4057,7 +4057,7 @@ var postAction = {
   name: "POST_TWEET",
   similes: ["TWEET", "POST", "SEND_TWEET"],
   description: "Post a tweet to Twitter",
-  validate: async (runtime, message, state) => {
+  validate: async (runtime, _message, _state) => {
     const username = runtime.getSetting("TWITTER_USERNAME");
     const password = runtime.getSetting("TWITTER_PASSWORD");
     const email = runtime.getSetting("TWITTER_EMAIL");
