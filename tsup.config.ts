@@ -6,5 +6,5 @@ export default defineConfig({
     sourcemap: true,
     clean: true,
     format: ["esm"],
-    external: ["dotenv", "fs", "path", "https", "http", "agentkeepalive"],
+    external: [ "@elizaos/core","dotenv", "fs", "path", "https", "http", "agentkeepalive"],
 });
