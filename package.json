@@ -42,37 +42,38 @@
             "TWITTER_USERNAME": {
                 "type": "string",
                 "minLength": 1,
-                "description": "Twitter account username"
+                "description": "your_username",
+                "optional": false
             },
             "TWITTER_PASSWORD": {
                 "type": "string",
                 "minLength": 1,
-                "description": "Twitter account password"
+                "description": "your_password",
+                "optional": false
             },
             "TWITTER_EMAIL": {
                 "type": "string",
-                "optional": true,
-                "description": "Twitter account email (required for 2FA)"
+                "minLength": 1,
+                "description": "Optional: for 2FA",
+                "optional": true
             },
             "TWITTER_2FA_SECRET": {
                 "type": "string",
-                "optional": true,
-                "description": "Twitter 2FA secret key"
+                "minLength": 1,
+                "description": "Optional: for 2FA",
+                "optional": true
             },
             "TWITTER_PREMIUM": {
-                "type": "boolean",
-                "default": false,
-                "description": "Enable premium Twitter features"
+                "type": "string",
+                "minLength": 1,
+                "description": "Optional: enables premium features",
+                "optional": true
             },
             "TWITTER_DRY_RUN": {
-                "type": "boolean",
-                "default": false,
-                "description": "Test mode without posting to Twitter"
-            },
-            "MAX_TWEET_LENGTH": {
-                "type": "number",
-                "default": 280,
-                "description": "Maximum allowed length for tweets"
+                "type": "string",
+                "minLength": 1,
+                "description": "Optional: test without posting",
+                "optional": true
             }
         }
     }
