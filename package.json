@@ -37,7 +37,7 @@
         "format:fix": "biome format --write src/"
     },
     "agentConfig": {
-        "pluginType": "elizaos:client:1.0.0",
+        "pluginType": "elizaos:plugin:0.25.9",
         "pluginParameters": {
             "TWITTER_USERNAME": {
                 "type": "string",
