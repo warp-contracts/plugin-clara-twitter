@@ -1,21 +1,19 @@
-# @elizaos/plugin-twitter
+# @elizaos-plugins/plugin-clara-twitter
 
-A plugin for Twitter/X integration, providing automated tweet posting capabilities with character-aware content generation.
+A fork of an original plugin for [Twitter/X integration](https://github.com/elizaos-plugins/plugin-twitter). 
+Provides additional functionality which allows to fetch data of a posted tweet using callback.
 
 ## Overview
 
-This plugin provides functionality to:
+This plugin provides additional functionality to:
 
-- Compose context-aware tweets
-- Post tweets to Twitter/X platform
-- Handle authentication and session management
-- Support premium Twitter features
-- Manage tweet length restrictions
+- Added HandlerCallback to the post action handler, allowing callers to execute custom functionality upon successful tweet creation
 
 ## Installation
 
+
 ```bash
-npm install @elizaos/plugin-twitter
+npx elizaos plugins add @elizaos-plugins/plugin-clara-twitter
 ```
 
 ## Configuration
@@ -254,6 +252,7 @@ Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) fil
 
 This plugin integrates with and builds upon several key technologies:
 
+- [@elizaos-plugins/plugin-twitter](https://github.com/elizaos-plugins/plugin-twitter)
 - [Twitter/X API](https://developer.twitter.com/en/docs): Official Twitter platform API
 - [agent-twitter-client](https://www.npmjs.com/package/agent-twitter-client): Twitter API client library
 - [Zod](https://github.com/colinhacks/zod): TypeScript-first schema validation

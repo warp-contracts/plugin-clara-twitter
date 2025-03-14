@@ -1,6 +1,6 @@
 {
-    "name": "@elizaos-plugins/plugin-twitter",
-    "version": "0.1.9",
+    "name": "@elizaos-plugins/plugin-clara-twitter",
+    "version": "0.25.9",
     "type": "module",
     "main": "dist/index.js",
     "module": "dist/index.js",
